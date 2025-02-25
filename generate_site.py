@@ -26,7 +26,7 @@ def scrape_openings():
         
         slug = name.replace("'", "").replace(" ", "-").lower()
         local_link = f"/{slug}/"
-        desc = sub_page(name).replace('"'. '\\"')
+        desc = sub_page(name).replace('"', '\\"')
         content = (
             f"---\n"
             f"title: \"{name}\"\n"
