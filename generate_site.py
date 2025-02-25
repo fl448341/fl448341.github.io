@@ -2,6 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 import os
 from duckduckgo_search import DDGS
+from transformers import pipeline
+
+
+generator = pipeline("text-generation", model="EleutherAI/gpt-neo-1.3B")
 
 def scrape_openings():
     response = requests.get('https://www.thechesswebsite.com/chess-openings/')
@@ -71,14 +75,15 @@ permalink: /
 """)
 
 def sub_page(opening_name):
-    try:
-        result = DDGS().chat(
-            f"Briefly describe {opening_name} chess opening (1 paragraph, include first 3-5 moves)",
-            model='claude-3-haiku'
-        )
-        return result
-    except Exception as e:
-        return f"Description unavailable. Error: {str(e)}"
+    prompt = f"Give a brief, coherent chess explanation for {opening_name}, 1 short paragraph, 3-5 opening moves."
+    result = generator(prompt,
+                       max_length=80,      
+                       num_return_sequences=1, 
+                       do_sample=True,
+                       top_k=50, 
+                       top_p=0.95)
+    return result[0]["generated_text"]
+
 
 if __name__ == "__main__":
     openings = scrape_openings()
