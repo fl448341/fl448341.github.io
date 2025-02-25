@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import os
 from duckduckgo_search import DDGS
 from transformers import pipeline
-
+import pytorch
 
 generator = pipeline("text-generation", model="EleutherAI/gpt-neo-1.3B")
 
@@ -62,7 +62,7 @@ title: "Chess Openings"
 permalink: /
 ---
 
-<div style="columns: 5; -webkit-columns: 5; -moz-columns: 5; column-gap: 3em;">
+<div style="columns: 5; -webkit-columns: 5; -moz-columns: 5; column-gap: 5em;">
 <ul>
 """)
         for name in openings_list:
