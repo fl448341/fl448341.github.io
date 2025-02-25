@@ -1,86 +1,83 @@
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
-from mdutils.mdutils import MdUtils
-from duckduckgo_search import DDGS
-import duckduckgo_search
 import os
 import time
+from duckduckgo_search import DDGS
+import duckduckgo_search
 
 def scrape_openings():
     response = requests.get('https://www.thechesswebsite.com/chess-openings/')
     soup = BeautifulSoup(response.text, 'html.parser')
-    openings = soup.find_all('div', id = 'cb-container')[1].find_all('a')
-    openings_dict = {
-        'Name': [],
-        'Position': []
-    }
+    openings = soup.find_all('div', id='cb-container')[1].find_all('a')
+    
     output_folder = 'pages'
     os.makedirs(output_folder, exist_ok=True)
- 
-        
+
+    openings_list = []
+
     for opening in openings:
-        name = opening.find('h5').text
-        link = opening.get('href')
-        img_link = opening.find('img').get('src')
-        
-        slug = name.replace("'", "").replace(" ", "-").lower()
-        local_link = f"/{slug}/"
-        desc = sub_page(name).replace('"', '\\"')
-        content = (
-            f"---\n"
-            f"title: \"{name}\"\n"
-            f"layout: default\n"
-            f"description: \"{desc}\"\n"
-            f"permalink: {local_link}\n"
-            f"---\n\n"
-            f"# {name}\n\n"
-            f"![{name} Image]({img_link})\n\n"
-            f"{desc}\n\n"
-            f"[More]({link})\n"
-        )
-        
-        filename = f"{slug}.md"
-        folder_path = os.path.join(output_folder, slug)
-        os.makedirs(folder_path, exist_ok=True)
-
-        filepath = os.path.join(folder_path, 'index.md')
-        with open(filepath, "w", encoding='utf-8') as f:
-            f.write(content)
-        
-        
-        
-        openings_dict['Name'].append(f'[{name}]({local_link})')
-        openings_dict['Position'].append(f'![]({img_link})')
-
-    openings_df = pd.DataFrame.from_dict(openings_dict)
-    
-    return openings_df
-    
-def openings_markdown(openings_df):
-    mdFile = MdUtils(file_name='index')
-
-    mdFile.new_header(level=1, title='Chess Openings')
-    
-    openings_df.index += 1
-    markdown_table = openings_df.to_markdown()
-    mdFile.new_paragraph(markdown_table)
-
-    mdFile.create_md_file()
-    
-    
-
-    
-def sub_page(opening_name):
-    retries = 1
-    for attempt in range(retries):
         try:
-            return DDGS().chat(
-                f"Write a description of a given chess opening: {opening_name}. I want you to write it in one paragraph, include first 5 moves for whites and blacks of this opening.",
-                model='claude-3-haiku'
-            )
-        except duckduckgo_search.exceptions.RatelimitException as e:
-            print(f"Rate limit reached for '{opening_name}', attempt {attempt+1}/{retries}. Retrying in 10 seconds...")
-    return f"Description for {opening_name} is not available due to rate limit."
+            name = opening.find('h5').text.strip()
+            link = opening.get('href')
+            img_link = opening.find('img').get('src')
+            
+            slug = name.replace("'", "").replace(" ", "-").lower()
+            folder_path = os.path.join(output_folder, slug)
+            os.makedirs(folder_path, exist_ok=True)
 
-openings_markdown(scrape_openings())
+            desc = sub_page(name).replace('"', "'").replace("\n", " ")
+            
+            content = f"""---
+layout: page
+title: "{name}"
+permalink: /{slug}/
+---
+
+# {name}
+
+![{name}]({img_link})
+
+{desc}
+
+[Original article]({link})
+"""
+            with open(os.path.join(folder_path, "index.md"), "w", encoding='utf-8') as f:
+                f.write(content)
+                
+            openings_list.append(name)
+
+        except Exception as e:
+            print(f"Error processing {name}: {str(e)}")
+            continue
+
+    return openings_list
+
+def generate_index(openings_list):
+    with open("index.md", "w", encoding="utf-8") as f:
+        f.write("""---
+layout: home
+title: Chess Openings Encyclopedia
+permalink: /
+---
+
+# All Chess Openings
+
+""")
+        for name in openings_list:
+            slug = name.replace("'", "").replace(" ", "-").lower()
+            f.write(f"- [{name}](/{slug}/)\n")
+
+def sub_page(opening_name):
+    try:
+        result = DDGS().chat(
+            f"Briefly describe {opening_name} chess opening (1 paragraph, include first 3-5 moves)",
+            model='claude-3-haiku'
+        )
+        return result
+    except Exception as e:
+        return f"Description unavailable. Error: {str(e)}"
+
+if __name__ == "__main__":
+    openings = scrape_openings()
+    generate_index(openings)
+    print("Generation completed!")
