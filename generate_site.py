@@ -27,13 +27,18 @@ def scrape_openings():
 
             desc = sub_page(name).replace('"', "'").replace("\n", " ")
             
-            content = f"""---
-layout: page
+            content =  f"""---
+layout: null
 title: "{name}"
 permalink: /{slug}/
 ---
 
-# {name}
+<!-- ten sam, minimalny "nagłówek" -->
+# [Chess Openings Encyclopedia](/)
+
+---
+
+## {name}
 
 ![{name}]({img_link})
 
@@ -55,12 +60,17 @@ permalink: /{slug}/
 def generate_index(openings_list):
     with open("index.md", "w", encoding="utf-8") as f:
         f.write("""---
-layout: page
+layout: null
 title: Chess Openings Encyclopedia
 permalink: /
 ---
 
-# All Chess Openings
+<!-- Minimal nagłówek: tylko nazwa serwisu z linkiem do strony głównej -->
+# [Chess Openings Encyclopedia](/)
+
+---
+
+## All Chess Openings
 
 """)
         for name in openings_list:
