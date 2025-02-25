@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import os
 from duckduckgo_search import DDGS
-from transformers import pipeline
 
 def scrape_openings():
     response = requests.get('https://www.thechesswebsite.com/chess-openings/')
