@@ -4,5 +4,3 @@ pandas
 mdutils
 duckduckgo_search
 tabulate
-transformers
-pytorch
