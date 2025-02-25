@@ -76,7 +76,6 @@ def sub_page(opening_name):
             )
         except duckduckgo_search.exceptions.RatelimitException as e:
             print(f"Rate limit reached for '{opening_name}', attempt {attempt+1}/{retries}. Retrying in 10 seconds...")
-            time.sleep(1)
     return f"Description for {opening_name} is not available due to rate limit."
 
 openings_markdown(scrape_openings())
