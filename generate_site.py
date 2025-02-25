@@ -54,13 +54,16 @@ permalink: /{slug}/
 def generate_index(openings_list):
     with open("index.md", "w", encoding="utf-8") as f:
         f.write("""---
-layout: default
+layout: custom
 title: Chess Openings Encyclopedia
 permalink: /
 ---
 
 ## All Chess Openings
 
+<div style="columns: 3; -webkit-columns: 3; -moz-columns: 3; column-gap: 1.5em;">
+
+<ul>
 """)
         for name in openings_list:
             slug = name.replace("'", "").replace(" ", "-").lower()
