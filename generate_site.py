@@ -55,19 +55,23 @@ def generate_index(openings_list):
     with open("index.md", "w", encoding="utf-8") as f:
         f.write("""---
 layout: custom
-title: Chess Openings
+title: "Chess Openings Encyclopedia"
 permalink: /
 ---
 
 ## All Chess Openings
 
 <div style="columns: 3; -webkit-columns: 3; -moz-columns: 3; column-gap: 1.5em;">
-
 <ul>
 """)
         for name in openings_list:
             slug = name.replace("'", "").replace(" ", "-").lower()
-            f.write(f"- [{name}](/{slug}/)\n")
+            # Generujemy element <li>
+            f.write(f"  <li><a href='/{slug}/'>{name}</a></li>\n")
+
+        f.write("""</ul>
+</div>
+""")
 
 def sub_page(opening_name):
     try:
