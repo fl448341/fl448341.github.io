@@ -25,14 +25,13 @@ def scrape_openings():
 
             desc = sub_page(name).replace('"', "'").replace("\n", " ")
 
-            # Front matter + treść każdej podstrony
             content = f"""---
 layout: default
 title: "{name}"
 permalink: /{slug}/
 ---
 
-## {name}
+### {name}
 
 ![{name}]({img_link})
 
@@ -55,13 +54,11 @@ def generate_index(openings_list):
     with open("index.md", "w", encoding="utf-8") as f:
         f.write("""---
 layout: default
-title: "Chess Openings Encyclopedia"
+title: "Chess Openings"
 permalink: /
 ---
 
-## All Chess Openings
-
-<div style="columns: 5; -webkit-columns: 5; -moz-columns: 5; column-gap: 1.5em;">
+<div style="columns: 5; -webkit-columns: 5; -moz-columns: 5; column-gap: 3em;">
 <ul>
 """)
         for name in openings_list:
