@@ -1,10 +1,4 @@
-title: "Chess Openings Site"
-description: "A comprehensive static website about various chess openings."
-baseurl: ""
-url: "https://fl448341.github.io/www01"
+title: Chess Openings
 theme: minima
-collections:
-  pages:
-    output: true
-markdown: kramdown
-permalink: pretty
+plugins:
+  - jekyll-feed
