@@ -58,7 +58,7 @@ title: "Chess Openings"
 permalink: /
 ---
 
-<div style="columns: 5; -webkit-columns: 5; -moz-columns: 5; column-gap: 3em;">
+<div style="column-count: 5; column-gap: 1.5em; column-fill: balance;">
 <ul>
 """)
         for name in openings_list:
