@@ -1,9 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import os
-import time
 from duckduckgo_search import DDGS
-import duckduckgo_search
 
 def scrape_openings():
     response = requests.get('https://www.thechesswebsite.com/chess-openings/')
@@ -26,16 +24,12 @@ def scrape_openings():
             os.makedirs(folder_path, exist_ok=True)
 
             desc = sub_page(name).replace('"', "'").replace("\n", " ")
-            
-            content =  f"""---
-layout: null
+
+            # Front matter + treść każdej podstrony
+            content = f"""---
+layout: default
 title: "{name}"
 permalink: /{slug}/
----
-
-<!-- ten sam, minimalny "nagłówek" -->
-# [Chess Openings Encyclopedia](/)
-
 ---
 
 ## {name}
@@ -58,27 +52,25 @@ permalink: /{slug}/
     return openings_list
 
 def generate_index(openings_list):
+    # Główna strona (index.md) - layout: default, brak ręcznie wstawionego nagłówka z linkiem
     with open("index.md", "w", encoding="utf-8") as f:
         f.write("""---
-layout: null
+layout: default
 title: Chess Openings Encyclopedia
 permalink: /
----
-
-<!-- Minimal nagłówek: tylko nazwa serwisu z linkiem do strony głównej -->
-# [Chess Openings Encyclopedia](/)
-
 ---
 
 ## All Chess Openings
 
 """)
+        # Pętla, która tworzy listę zlinkowanych otwarć
         for name in openings_list:
             slug = name.replace("'", "").replace(" ", "-").lower()
             f.write(f"- [{name}](/{slug}/)\n")
 
 def sub_page(opening_name):
     try:
+        # Zapytanie do DuckDuckGo Chat (claude-3-haiku) - opis otwarcia
         result = DDGS().chat(
             f"Briefly describe {opening_name} chess opening (1 paragraph, include first 3-5 moves)",
             model='claude-3-haiku'
