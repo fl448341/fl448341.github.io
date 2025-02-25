@@ -24,14 +24,15 @@ def scrape_openings():
         link = opening.get('href')
         img_link = opening.find('img').get('src')
         
-        slug = name.replace(" ", "_").lower()
-        local_link = f"pages/{slug}.html"
-        desc = sub_page(name)
+        slug = name.replace("'", "").replace(" ", "-").lower()
+        local_link = f"/{slug}/"
+        desc = sub_page(name).replace('"'. '\\"')
         content = (
             f"---\n"
             f"title: \"{name}\"\n"
             f"layout: default\n"
             f"description: \"{desc}\"\n"
+            f"permalink: {local_link}\n"
             f"---\n\n"
             f"# {name}\n\n"
             f"![{name} Image]({img_link})\n\n"
@@ -40,9 +41,13 @@ def scrape_openings():
         )
         
         filename = f"{slug}.md"
-        filepath = os.path.join(output_folder, filename)
+        folder_path = os.path.join(output_folder, slug)
+        os.makedirs(folder_path, exist_ok=True)
+
+        filepath = os.path.join(folder_path, 'index.md')
         with open(filepath, "w", encoding='utf-8') as f:
             f.write(content)
+        
         
         
         openings_dict['Name'].append(f'[{name}]({local_link})')
