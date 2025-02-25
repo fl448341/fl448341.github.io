@@ -55,7 +55,7 @@ permalink: /{slug}/
 def generate_index(openings_list):
     with open("index.md", "w", encoding="utf-8") as f:
         f.write("""---
-layout: home
+layout: page
 title: Chess Openings Encyclopedia
 permalink: /
 ---
