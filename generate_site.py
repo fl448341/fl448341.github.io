@@ -52,7 +52,6 @@ permalink: /{slug}/
     return openings_list
 
 def generate_index(openings_list):
-    # Główna strona (index.md) - layout: default, brak ręcznie wstawionego nagłówka z linkiem
     with open("index.md", "w", encoding="utf-8") as f:
         f.write("""---
 layout: default
@@ -63,14 +62,12 @@ permalink: /
 ## All Chess Openings
 
 """)
-        # Pętla, która tworzy listę zlinkowanych otwarć
         for name in openings_list:
             slug = name.replace("'", "").replace(" ", "-").lower()
             f.write(f"- [{name}](/{slug}/)\n")
 
 def sub_page(opening_name):
     try:
-        # Zapytanie do DuckDuckGo Chat (claude-3-haiku) - opis otwarcia
         result = DDGS().chat(
             f"Briefly describe {opening_name} chess opening (1 paragraph, include first 3-5 moves)",
             model='claude-3-haiku'
