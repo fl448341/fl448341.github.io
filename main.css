@@ -45,7 +45,7 @@
 
   .sub-title {
     font-size: 1.25rem; /* np. ~20px */
-    margin-right: 2.5rem !important;
+    margin-right: 2rem !important
   }
   .sub-title a {
     @apply text-indigo-300 hover:text-purple-400 visited:text-indigo-300;
@@ -136,6 +136,93 @@ html {
   border-radius: 20px;
   object-fit: cover;
   width: 650px;
+}
+@media (max-width: 800px) {
+  .site-header > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    padding-left: 0 !important; 
+    padding-right: 0 !important;
+  }
+
+  nav.flex.items-center.space-x-2 > *:not(:last-child) {
+    margin-right: 0 !important;
+  }
+
+  .site-title,
+  .site-header nav {
+    margin-left: 1rem !important;  
+  }
+    
+  .site-title {
+    text-align: left !important;
+    margin-right: 0 !important;
+  }
+  
+  .site-header nav {
+    display: flex !important;
+    flex-direction: row !important; 
+    gap: 0rem !important;         
+    margin-top: 0.75rem !important; 
+    margin-left: 1.7rem !important;
+    padding-bottom: 0rem !important;
+    padding-top: 0.5rem !important;
+  }
+  
+  .sub-title {
+    margin: 0 !important;
+    margin-left: 0rem !important; 
+    margin-right: 1rem !important;
+    text-align: left !important;
+  }
+  
+  .flex-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 10px;
+      padding: 10px;
+      background-color: theme('colors.slate.300') !important;
+      border-radius: 5px;
+  }
+
+  .box {
+      padding: 30px;
+      background-color: theme('colors.slate.200') !important;
+      border-radius: 5px;
+      
+  }
+  #board {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto;
+  }
+
+  #box1 {
+      order: 1;
+  }
+  #box2 {
+      order: 3;
+  }
+  #box3 {
+      img {
+          border-radius: 20px;
+          max-width: 100%;
+          height: auto;
+          
+      }
+      order: 2;
+  }
+  #box4 {
+      order: 3;
+  }
+  progress {
+      visibility: hidden;
+  }
+  
 }
 
 
