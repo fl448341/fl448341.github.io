@@ -1,34 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Evans Gambit - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Evans Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="evans-gambit">Evans Gambit</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/evansgambit1.jpg" alt="Evans Gambit" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Evans Gambit is a chess opening that begins with the moves: 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4. This opening is named after the 19th-century Welsh chess master William Davies Evans. The Evans Gambit is an aggressive opening where White sacrifices a pawn in order to gain rapid development and control of the center. The opening is characterized by White’s early pawn advance to b4, challenging Black’s control of the center. This can lead to sharp, tactical positions where both players must navigate complex lines to gain an advantage.</p>
+    <div class="box" id="box2">
+      <p>
+        The Evans Gambit is an attacking line of the Giuoco Piano. White offers a pawn to divert the black bishop on c5. If Black accepts, White can follow up with c3 and d4, ripping open the centre, while also opening diagonals to play Ba3 or Qb3 at some point, preventing Black from castling kingside and threatening the f7-pawn, respectively. If Black declines, the b4-pawn stakes out space on the queenside, and White can follow up with a4 later in the game, potentially gaining a tempo by threatening to trap Black's dark-square bishop.
+        According to Reuben Fine, the Evans Gambit poses a challenge for Black since the usual defences (playing ...d6 and/or returning the gambit pawn) are more difficult to achieve than with other gambits.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-<p><a href="https://www.thechesswebsite.com/evans-gambit/">Original article</a></p>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    </main>
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('b8-c6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('f1-c4');
+      }, 4650);
+      setTimeout(function() {
+        board.move('f8-c5');
+      }, 5150);
+      setTimeout(function() {
+        board.move('b2-b4');
+      }, 5650);
+
+    });
+  </script>
+</body>
 </html>

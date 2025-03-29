@@ -1,34 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Baltic Defense - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Baltic Defense - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="baltic-defense">Baltic Defense</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2013/07/baltic-featured.jpg" alt="Baltic Defense" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Baltic Defense is a chess opening that begins with the moves 1. e4 e5 2. Nf3 Nc6 3. Bb5. This opening is characterized by Black’s early development of the knight to c6, challenging the center and preparing to defend the e5 pawn. The Baltic Defense is a solid and flexible opening that allows Black to take the initiative and fight for control of the center. It is a popular choice for players looking to counter White’s aggressive opening moves and develop a strong position.</p>
+    <div class="box" id="box2">
+      <p>
+        The Baltic Defense is a chess opening that begins with the moves 1. d4 d5, 2. c4 Bf5. The Baltic is an unusual variation of the Queen's Gambit Declined (QGD). In most defenses to the QGD, Black has difficulties developing his queen bishop. This opening takes a radical approach to the problem by bringing out the queen bishop immediately, but exposes it to the latent threat of e2-e4, for example 3. cxd5 Qxd5? 4. Nc3 Qa5 5. Bd2 followed by 6. e4 hitting the bishop gives White a strong advantage.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-<p><a href="https://www.thechesswebsite.com/baltic-defense/">Original article</a></p>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    </main>
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 2650);
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('d7-d5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('c2-c4');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('c8-f5');
+      }, 4150);
+      
+    });
+  </script>
+</body>
 </html>

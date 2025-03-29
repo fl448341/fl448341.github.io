@@ -1,34 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Reti Opening - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Reti Opening - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="reti-opening">Reti Opening</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/RetiOpening.jpg" alt="Reti Opening" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>Description unavailable. Error: https://duckduckgo.com/duckchat/v1/chat 418 Ratelimit</p>
+    <div class="box" id="box2">
+      <p>
+        The Réti Opening is a hypermodern chess opening whose "traditional" or "classic method" begins with the moves:
+1. Nf3 d5
+2. c4.
+White attacks Black's pawn from the flank, which may occasion 2...dxc4. White may couple this plan with a kingside fianchetto (g3 and Bg2) to create pressure on the light squares in the center.
 
-<p><a href="https://www.thechesswebsite.com/reti-opening/">Original article</a></p>
+The opening is named after Czechoslovakian chess player Richard Réti (1889–1929). The opening is in the spirit of the hypermodernism movement that Réti championed, with the center being dominated from the wings rather than by direct occupation. If White fianchettoes both bishops, castles kingside, and refrains from occupying the center with pawns, the result may be described as the Réti System.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('d7-d5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('c2-c4');
+      }, 3650);
+
+    });
+  </script>
+</body>
 </html>
+

@@ -1,34 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Italian Game - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Italian Game - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="italian-game">Italian Game</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2015/08/the-italian-game.jpg" alt="Italian Game" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Italian Game is a popular chess opening that begins with the moves 1. e4 e5 2. Nf3 Nc6 3. Bc4. This opening is characterized by an early development of the white bishop to the c4 square, putting pressure on the center and the e5 pawn. The Italian Game often leads to sharp, tactical positions, with both players aiming to control the center and launch attacks on the opposing king. The opening is considered sound and has been played by many strong grandmasters throughout the history of chess.</p>
+    <div class="box" id="box2">
+      <p>
+        The Italian Game is a family of chess openings beginning with the moves:
 
-<p><a href="https://www.thechesswebsite.com/italian-game/">Original article</a></p>
+1. e4 e5
+2. Nf3 Nc6
+3. Bc4
+This opening is defined by the development of the white bishop to c4 (the so-called "Italian bishop"), where it attacks Black's vulnerable f7-square. It is part of the large family of Open Games or Double King's Pawn Games.
 
-    </main>
+The Italian Game is one of the oldest recorded chess openings; it occurs in the Göttingen manuscript and was developed by players such as Damiano and Polerio in the 16th century, and later by Greco in 1620, who gave the game its main line. It has been extensively analyzed for more than 300 years.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 3650);
+      setTimeout(function() {
+        board.move('b8-c6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('f1-c4');
+      }, 4650);
+    });
+  </script>
+</body>
 </html>
+
+

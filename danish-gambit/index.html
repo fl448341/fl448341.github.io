@@ -1,34 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Danish Gambit - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Danish Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="danish-gambit">Danish Gambit</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/DanishGambit.jpg" alt="Danish Gambit" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Danish Gambit is a chess opening that begins with the moves: 1. e4 e5 2. d4 exd4 3. c3. This is an aggressive opening where White sacrifices a pawn in order to gain rapid development and control of the center. The idea behind the Danish Gambit is for White to quickly develop their pieces and put pressure on Black’s position. After the initial pawn sacrifice, White typically follows up with moves like Nc3, Bc4, and Qb3, aiming to quickly mobilize their forces and create threats against the black king. The Danish Gambit is considered a risky but dynamic opening that can lead to sharp, tactical positions if Black does not find the correct defensive responses.</p>
+    <div class="box" id="box2">
+      <p>
+        The Danish Gambit, known as the Nordisches Gambit in German and the Noords Gambiet in Dutch (both meaning Nordic Gambit), is a chess opening that begins with the moves:
+        1. e4 e5
+2. d4 exd4
+3. c3.
+White will sacrifice one or two pawns for the sake of rapid development and the attack. However, with care, Black can accept one or both pawns safely, or simply decline the gambit altogether with good chances.
 
-<p><a href="https://www.thechesswebsite.com/danish-gambit/">Original article</a></p>
+Although it may have been known earlier, Danish player Martin Severin From essayed the gambit in the Paris 1867 tournament and he is usually given credit for the opening. The Danish Gambit was popular with masters of the attack including Alekhine, Marshall, Blackburne, and Mieses, but as more defensive lines for Black were discovered and improved, it lost favor in the 1920s. Today it is rarely played in top-level chess.
 
-    </main>
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
+
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('e5-d4');
+      }, 4150);
+      setTimeout(function() {
+        board.move('c2-c3');
+      }, 4650);
+    });
+  </script>
+</body>
 </html>
+
+
+

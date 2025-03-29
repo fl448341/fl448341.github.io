@@ -1,34 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Blackmar-Diemer Gambit - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Blackmar-Diemer Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="blackmar-diemer-gambit">Blackmar-Diemer Gambit</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/blackmar_big.jpg" alt="Blackmar-Diemer Gambit" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Blackmar-Diemer Gambit is a chess opening that begins with the moves 1. d4 d5 2. e4 dxe4 3. Nc3. This opening is characterized by White sacrificing a pawn early in the game in an attempt to gain a lead in development and control of the center. The gambit is named after German chess masters Gisbert Jacobus Diemer and Max Blackmar, who popularized this opening in the late 19th century. The Blackmar-Diemer Gambit is considered an aggressive and risky opening, as Black has several ways to counter it and punish White’s pawn sacrifice if not played correctly.</p>
+    <div class="box" id="box2">
+      <p>
+        The Blackmar–Diemer Gambit (or BDG) is a chess opening characterized by the moves:
 
-<p><a href="https://www.thechesswebsite.com/blackmar-diemer-gambit/">Original article</a></p>
+        1. d4 d5
+        2. e4 dxe4
+        3. Nc3
+        where White intends to follow up with f3, usually on the fourth move. White obtains a tempo and a half-open f-file in return for a pawn, and as with most gambits, White aims to achieve rapid development and active posting of their pieces in order to rapidly build up an attack at the cost of the gambit pawn. It is one of the few gambits available to White after 1.d4.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('d7-d5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('d5-e4');
+      }, 4150);
+      setTimeout(function() {
+        board.move('b1-c3');
+      }, 4650);
+    });
+  </script>
+</body>
 </html>
+

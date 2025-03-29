@@ -1,34 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>King’s Gambit - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>King’s Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="kings-gambit">King’s Gambit</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/KingsGambit.jpg" alt="King’s Gambit" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The King’s Gambit is an aggressive chess opening that begins with the moves 1. e4 e5 2. f4. White sacrifices a pawn in the center in order to gain rapid development and control of the center. The typical continuation is 2…exf4 3. Nf3 g5 4. h4 g4 5. Ne5. This opening leads to sharp, tactical positions where both sides must play accurately to maintain an advantage. The King’s Gambit was very popular in the 19th century but has fallen out of favor at the highest levels of chess today, as modern players have found ways to neutralize White’s initiative.</p>
+    <div class="box" id="box2">
+      <p>
+        The King's Gambit is a chess opening that begins with the moves:
 
-<p><a href="https://www.thechesswebsite.com/kings-gambit/">Original article</a></p>
+1. e4 e5
+2. f4
+White offers a pawn to divert the black e-pawn. If Black accepts the gambit, White may play d4 and Bxf4, regaining the gambit pawn with central domination, or direct their forces against the weak square f7 with moves such as Nf3, Bc4, 0-0, and g3. A downside to the King's Gambit is that it weakens White's king's position, exposing it to the latent threat of ...Qh4+ (or ...Be7–h4+), which may force White to give up castling rights.
+The King's Gambit is one of the oldest documented openings, appearing in the earliest of chess books, Luis Ramírez de Lucena's Repetición de Amores y Arte de Ajedrez (1497)
+It was examined by the 17th-century Italian chess player Giulio Cesare Polerio. The King's Gambit was one of the most popular openings until the late 19th century, when improvements in defensive technique led to its decline in popularity.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('f2-f4');
+      }, 3650);
+    });
+  </script>
+</body>
 </html>
+

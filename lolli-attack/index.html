@@ -1,34 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Lolli Attack - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Lolli Attack - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="lolli-attack">Lolli Attack</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/lolli-attack-opening-big.jpg" alt="Lolli Attack" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Lolli Attack is a chess opening that begins with the moves 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. O-O Nf6 5. d3. This opening is characterized by White’s early development of the knight to f3 and the bishop to c4, aiming to control the center and prepare to castle quickly. The name ‘Lolli Attack’ comes from the Italian chess player Vincenzo Lolli, who popularized this opening in the 18th century. The Lolli Attack is considered a solid and positional approach for White, as it allows for the development of the pieces and the control of the center, while also providing opportunities for a kingside attack if Black’s position becomes too passive.</p>
+    <div class="box" id="box2">
+      <p>
+        The Lolli Attack is a chess opening which is an “alternative version” of the infamous Fried Liver Attack. The opening moves are 1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nxd5?! 6. d4!
+        In this particular line of the Italian Game, Black’s immediate of the recapture of the d5 pawn is generally considered to be ill-advised (as many beginners have found out the hard way!).
+        To initiate the Lolli Attack, white delays the well-known piece sacrifice (6. Nxf7 Kxf7 7. Qf3+) in favor of blowing open more lines in the center with 6. d4.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-<p><a href="https://www.thechesswebsite.com/lolli-attack/">Original article</a></p>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    </main>
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('b8-c6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('f1-c4');
+      }, 4650);
+      setTimeout(function() {
+        board.move('g8-f6');
+      }, 5150);
+      setTimeout(function() {
+        board.move('f3-g5');
+      }, 5650);
+      setTimeout(function() {
+        board.move('d7-d5');
+      }, 6150);
+      setTimeout(function() {
+        board.move('e4-d5');
+      }, 6650);
+      setTimeout(function() {
+        board.move('f6-d5');
+      }, 7150);
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 7650);
+    });
+  </script>
+</body>
 </html>
+
+

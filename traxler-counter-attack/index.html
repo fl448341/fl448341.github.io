@@ -1,34 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Traxler Counter Attack - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Traxler Counter Attack - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="traxler-counter-attack">Traxler Counter Attack</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/traxler-big.png" alt="Traxler Counter Attack" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>Description unavailable. Error: https://duckduckgo.com/duckchat/v1/chat 418 Ratelimit</p>
+    <div class="box" id="box2">
+      <p>
+        The Traxler Counterattack, also known as the Wilkes-Barre Variation, is a chess opening that begins with the moves:
 
-<p><a href="https://www.thechesswebsite.com/traxler-counter-attack/">Original article</a></p>
+        1. e4 e5
+        2. Nf3 Nc6
+        3. Bc4 Nf6
+        4. Ng5 Bc5!?. 
+        The opening is a variation of the Two Knights Defense where White has chosen the offensive line 4.Ng5, immediately attacking the f7-square with the knight and bishop, and Black has replied 4...Bc5, counterattacking the f2-square. It is one of several ways Black can avoid the Fried Liver Attack.
+        
+        The variation was first seen in the game J. Reinisch–Karel Traxler played in Hostouň in 1890. Later it was named after Wilkes-Barre, Pennsylvania by Frank Marshall, who claimed to be first to analyze and publish it, so today 4...Bc5 is known as both the Traxler Variation and (in the United States and the United Kingdom only) the Wilkes-Barre Variation.
+        
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('b8-c6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('f1-c4');
+      }, 4650);
+      setTimeout(function() {
+        board.move('g8-f6');
+      }, 5150);
+      setTimeout(function() {
+        board.move('f3-g5');
+      }, 5650);
+      setTimeout(function() {
+        board.move('f8-c5');
+      }, 6150);
+    });
+  </script>
+</body>
 </html>
+
+

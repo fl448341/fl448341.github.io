@@ -1,34 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Jerome Gambit - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Jerome Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="jerome-gambit">Jerome Gambit</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2015/11/jerome-gambit.jpg" alt="Jerome Gambit" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Jerome Gambit is a chess opening that begins with the moves: 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. Bxf7+. This opening is named after the American chess player Jerome Stafford, who popularized it in the late 19th century. The key idea behind the Jerome Gambit is to sacrifice a pawn (the bishop on f7) in order to gain a quick initiative and attack the opponent’s king. While the gambit is considered unsound from a theoretical perspective, it can be an interesting and tricky opening to play, especially at the amateur level, as it can catch opponents off guard with its aggressive and unorthodox approach.</p>
+    <div class="box" id="box2">
+      <p>
+        The Jerome Gambit is an unsound chess opening which is an offshoot of the Giuoco Piano. It is characterized by the moves:
 
-<p><a href="https://www.thechesswebsite.com/jerome-gambit/">Original article</a></p>
+1. e4 e5
+2. Nf3 Nc6
+3. Bc4 Bc5
+4. Bxf7+?! Kxf7
+5. Nxe5+ Nxe5
+White sacrifices two pieces (and eventually regains one) for two pawns in hopes of exposing Black's king and obtaining a mating attack. The line was a brief fad in the late 19th century, but it is almost never seen today.
+In the third edition of the opening treatise Chess Openings, Ancient and Modern (1896), the authors wrote:
 
-    </main>
+The Jerome Gambit is an American invention, and a very risky attack. It is described in the American Supplement to Cook's Synopsis as unsound but not to be trifled with. The first player sacrifices two pieces for two pawns, with the chances arising from the adversary's king being displaced, and drawn into the centre of the board.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
+
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('b8-c6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('f1-c4');
+      }, 4650);
+      setTimeout(function() {
+        board.move('f8-c5');
+      }, 5150);
+      setTimeout(function() {
+        board.move('c4-f7');
+      }, 5650);
+      setTimeout(function() {
+        board.move('e8-f7');
+      }, 6150);
+      setTimeout(function() {
+        board.move('f3-e5');
+      }, 6550);
+      setTimeout(function() {
+        board.move('c6-e5');
+      }, 7150);
+    });
+  </script>
+</body>
 </html>
+
+

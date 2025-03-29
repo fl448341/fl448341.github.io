@@ -1,34 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Goring Gambit - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Goring Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="goring-gambit">Goring Gambit</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2013/02/goring-gambit-featured1.jpg" alt="Goring Gambit" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Göring Gambit is a chess opening that begins with the moves: 1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. c3. This opening is named after the German chess player Carl August Göring. The Göring Gambit is considered an aggressive and risky opening for White, as White sacrifices a pawn in the center in order to gain rapid development and control of the center. The opening leads to sharp and tactical positions, where both sides must play accurately to maintain an advantage. While not as popular as some other openings, the Göring Gambit can be an effective way for White to surprise and unbalance their opponent in the early stages of the game.</p>
+    <div class="box" id="box2">
+      <p>
+        The Göring Gambit is a chess opening that begins with the moves 1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.c3. This opening is characterized by White’s ambitious pawn sacrifice aimed at rapidly developing pieces and gaining control of the center. By sacrificing one or even two pawns, White seeks active and dynamic play, aiming for quick piece mobilization and attacking chances. The Göring Gambit often leads to sharp, tactical positions, making it a popular choice among aggressive players who are comfortable sacrificing material for an early initiative.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-<p><a href="https://www.thechesswebsite.com/goring-gambit/">Original article</a></p>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    </main>
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('b8-c6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 4650);
+      setTimeout(function() {
+        board.move('e5-d4');
+      }, 5150);
+      setTimeout(function() {
+        board.move('c2-c3');
+      }, 5650);
+    });
+  </script>
+</body>
 </html>

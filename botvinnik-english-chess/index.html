@@ -1,34 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Botvinnik English Chess - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Botvinnik English Chess - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="botvinnik-english-chess">Botvinnik English Chess</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2024/03/1-botvinnikmp4-e1718391084902.webp" alt="Botvinnik English Chess" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Botvinnik English Chess opening is a variation of the English Opening, which begins with the moves 1. c4 e5. This opening was popularized by the Soviet grandmaster Mikhail Botvinnik, who used it extensively in his games. The typical continuation of the Botvinnik English goes as follows: 1. c4 e5 2. Nc3 Nf6 3. Nf3 Nc6 4. g3 Bc5. This setup aims to control the center with the pawn on c4 and develop the pieces in a solid and flexible manner, while also preparing to fianchetto the king’s bishop. The Botvinnik English is considered a reliable and positional opening that can lead to a wide variety of middle-game positions.</p>
+    <div class="box" id="box2">
+      <p>
+        This is often called the Botvinnik System and it’s very popular among amateurs who are looking for something that’s easy to learn but also has a good deal of bite. The idea is to grab central space and take advantage of black’s …Nf6, which blocks his f-pawn. Since White hasn’t moved his g1-Knight yet (it will almost always move to e2), he’s free to play f2-f4 and seek a kingside attack with a later f4-f5. On top of that possibility, White can also grab the whole center at some point with d3-d4, or play on the queenside by Rb1 followed by b2-b4-b5.
 
-<p><a href="https://www.thechesswebsite.com/botvinnik-english-chess/">Original article</a></p>
+        It’s interesting to note that after 1.c4 c5 2.g3 g6 3.Bg2 Bg7 4.Nc3 Nc6 5.Nf3 one of black’s most respected lines is 5…e5, playing the Botvinnik System with a tempo less!      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('c2-c4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('b1-c3');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('b8-c6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('g2-g3');
+      }, 4650);
+      setTimeout(function() {
+        board.move('g7-g6');
+      }, 5150);
+      setTimeout(function() {
+        board.move('f1-g2');
+      }, 5650);
+      setTimeout(function() {
+        board.move('f8-g7');
+      }, 6150);
+      setTimeout(function() {
+        board.move('d2-d3');
+      }, 6650);
+      setTimeout(function() {
+        board.move('d7-d6');
+      }, 7150);
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 7650);
+
+
+    });
+  </script>
+</body>
 </html>
+
+

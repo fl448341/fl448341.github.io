@@ -1,34 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Cochrane Gambit - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Cochrane Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="cochrane-gambit">Cochrane Gambit</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2013/05/cochrane-gambit-featured1.jpg" alt="Cochrane Gambit" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Cochrane Gambit is a chess opening that begins with the moves 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. O-O Nf6 5. d3. This opening is named after the Scottish chess player John Cochrane, who popularized it in the 19th century. The Cochrane Gambit is an aggressive opening that aims to quickly develop the white pieces and control the center. White sacrifices a pawn in the opening with the hope of gaining a strong initiative and attacking chances. The Cochrane Gambit is considered a risky but interesting opening that can lead to complex and tactical positions.</p>
+    <div class="box" id="box2">
+      <p>
+        The Cochrane Gambit is named after John Cochrane, who suggested it in the 1840s. Later Staunton would add to the theory, but it was Bronstein that came up with, arguably, the most dangerous move 5.d4.
 
-<p><a href="https://www.thechesswebsite.com/cochrane-gambit/">Original article</a></p>
+Because the Petroff Defense is such a tough nut to crack, it is hardly surprising that White would turn to desperate measures. Admittedly, these measures are not as hopeless as some other gambits since White gets two central pawns for the knight and Black loses castling rights to boot
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('g8-f6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('f3-e5');
+      }, 4650);
+      setTimeout(function() {
+        board.move('d7-d6');
+      }, 5150);
+      setTimeout(function() {
+        board.move('e5-f7');
+      }, 5650);
+
+    });
+  </script>
+</body>
 </html>
+
+
+

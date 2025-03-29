@@ -1,34 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Grunfeld Defense - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Grunfeld Defense - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="grunfeld-defense">Grunfeld Defense</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/grunfeld.jpg" alt="Grunfeld Defense" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Grunfeld Defense is a dynamic and complex chess opening that arises after the moves 1. d4 Nf6 2. c4 g6. Black’s strategy is to challenge White’s center with the move …d5, aiming to create an imbalanced position with chances for both sides. The Grunfeld is characterized by the pawn structure where Black’s pawns on c7, d5, and e7 form a ‘Grunfeld pawn formation.’ This opening leads to sharp, tactical positions where both players must be well-versed in the nuances of the resulting structures and typical plans. The Grunfeld has been a favorite of many world-class players and is considered one of the most theoretically complex openings in chess.</p>
+    <div class="box" id="box2">
+      <p>
+        The Grünfeld Defence is a chess opening characterised by the moves:
 
-<p><a href="https://www.thechesswebsite.com/grunfeld-defense/">Original article</a></p>
+1. d4 Nf6
+2. c4 g6
+3. Nc3 d5
+Black offers White the possibility of 4.cxd5, which may be followed by 4...Nxd5 and 5.e4, giving White an imposing central pawn duo. If White does not take the d5-pawn, Black may eventually play ...dxc4, when a White response of e4 again leads to the same pawn structure. In classical opening theory this imposing pawn centre was held to give White a large advantage, but the hypermodern school, which was coming to the fore in the 1920s, held that a large pawn centre could be a liability rather than an asset. The Grünfeld is therefore a key hypermodern opening, showing in stark terms how a large pawn centre can either be a powerful battering ram or a target for attack.
 
-    </main>
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
+
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('g8-f6');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('c2-c4');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('g7-g6');
+      }, 4150);
+
+      setTimeout(function() {
+        board.move('b1-c3');
+      }, 4650);
+
+      setTimeout(function() {
+        board.move('d7-d5');
+      }, 5150);
+      
+    });
+  </script>
+</body>
 </html>
+
+
+

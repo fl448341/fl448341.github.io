@@ -1,34 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Benoni Defense - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Benoni Defense - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="benoni-defense">Benoni Defense</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2015/08/the-benoni-defense.jpg" alt="Benoni Defense" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Benoni Defense is a chess opening that begins with the moves 1. d4 Nf6 2. c4 c5. This opening is characterized by Black’s willingness to accept a pawn weakness on the d5-square in exchange for active counterplay in the center and on the queenside. The typical continuation is 3. d5 e6, where Black aims to undermine White’s center with moves like …b5 and …a6. The Benoni is an aggressive and dynamic opening that can lead to complex and tactical positions, making it a popular choice for players seeking active and unbalanced play.</p>
+    <div class="box" id="box2">
+      <p>
+        The Benoni Defense is a chess opening characterized by an early reply of ...c5 against White's opening move 1.d4. The original form of the Benoni, now known as the Old Benoni, is characterized by
+        1. d4 c5
+        This leaves Black a few options such as an early ...f5 and an early dark-squared bishop trade by ...Be7–g5, but has the drawback that White is no longer committed to playing c2–c4 after the response 2.d5. White may prefer to occupy c4 with a knight, or to inconvenience Black's development with an early bishop check on b5.        
+        
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-<p><a href="https://www.thechesswebsite.com/benoni-defense/">Original article</a></p>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    </main>
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 2650);
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('c7-c5');
+      }, 3150);
+    });
+  </script>
+</body>
 </html>

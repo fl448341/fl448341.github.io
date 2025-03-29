@@ -1,34 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Bowlder Attack - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Bowlder Attack - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="bowlder-attack">Bowlder Attack</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2014/04/bowlder-attack-featured.jpg" alt="Bowlder Attack" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Bowlder Attack is a chess opening that begins with the moves 1. e4 e5 2. Nf3 Nc6 3. Bc4. This opening is named after the English chess player William Davies Evans, who popularized it in the 19th century. The Bowlder Attack is characterized by an early development of the bishop to the c4 square, which aims to control the center and put pressure on the e5 pawn. This opening can lead to sharp and tactical positions, as Black often responds with the Sicilian Defense or the Najdorf Variation. The Bowlder Attack is considered an aggressive and dynamic opening that can provide White with opportunities to launch an early attack on the black king.</p>
+    <div class="box" id="box2">
+      <p>
+        In the Sicilian, if white does not open up the center with an early d2-d4, black will often want to expand on the queenside while white will want to expand on the kingside. One of black’s plans is to play an early …b5 advance. The c4 bishop is ineffective at preventing this advance, and will often have to move again.
 
-<p><a href="https://www.thechesswebsite.com/bowlder-attack/">Original article</a></p>
+Furthermore, the pressure to the f7 pawn is nonexistent. Black’s most popular answer to the Bowdler attack is 2…e6, effectively blunting this bishop, turning it into more of a target than an asset.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('c7-c5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('f1-c4');
+      }, 3650);
+
+    });
+  </script>
+</body>
 </html>
+
+

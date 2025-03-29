@@ -1,34 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Giuoco Piano - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Giuoco Piano - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="giuoco-piano">Giuoco Piano</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2015/08/the-giuoco-piano.jpg" alt="Giuoco Piano" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Giuoco Piano (Italian for ‘Quiet Game’) is a chess opening that begins with the moves: 1. e4 e5 2. Nf3 Nc6 3. Bc4. This is a relatively quiet and positional opening, where White develops his pieces in a controlled manner, aiming to control the center and prepare for a kingside attack. The Giuoco Piano is considered a solid and reliable opening for White, as it avoids the sharp tactical lines of other openings like the Sicilian Defense or the Ruy Lopez. The opening often leads to a closed center, where both players maneuver their pieces to gain small advantages and prepare for the middlegame.</p>
+    <div class="box" id="box2">
+      <p>
+        The Giuoco Piano is a chess opening beginning with the moves:
 
-<p><a href="https://www.thechesswebsite.com/giuoco-piano/">Original article</a></p>
+        1. e4 e5
+        2. Nf3 Nc6
+        3. Bc4 Bc5
+        "White aims to develop quickly – but so does Black. White can construct a pawn centre but in unfavourable conditions a centre which cannot provide a basis for further active play."
+        The name "Italian Game" is also commonly used; however, that name is sometimes used instead to describe all openings starting 1.e4 e5 2.Nf3 Nc6 3.Bc4, including 3...Nf6 (the Two Knights Defence) and other less common replies.
+        The Giuoco Piano is one of the oldest recorded openings. The Portuguese writer Pedro Damiano played it at the beginning of the 16th century and the Italian Greco played it at the beginning of the 17th century. The Giuoco Piano was popular through the 19th century, but modern refinements in defensive play have led most chess masters towards openings like the Ruy Lopez that offer White greater chances for long-term initiative.
 
-    </main>
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
+
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('b8-c6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('f1-c4');
+      }, 4650);
+      setTimeout(function() {
+        board.move('f8-c5');
+      }, 5150);
+    });
+  </script>
+</body>
 </html>
+

@@ -1,34 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Veresov Attack - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Veresov Attack - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="veresov-attack">Veresov Attack</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2013/01/veresov-attack-featured.jpg" alt="Veresov Attack" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>Description unavailable. Error: https://duckduckgo.com/duckchat/v1/chat 418 Ratelimit</p>
+    <div class="box" id="box2">
+      <p>
+        The Veresov Attack (or Richter-Veresov Attack) is a chess opening that begins with the moves:
 
-<p><a href="https://www.thechesswebsite.com/veresov-attack/">Original article</a></p>
+        1. d4 d5
+        2. Nc3 Nf6
+        3. Bg5. 
+        It is also often reached by transposition, for example 1.d4 Nf6 2.Nc3 d5 3.Bg5 (the most common move order), 1.d4 Nf6 2.Bg5 d5 3.Nc3, or 1.Nc3 Nf6 2.d4 d5 3.Bg5.
+        
+        The opening was named after the German International Master Kurt Richter and later the Soviet master Gavriil Veresov, who played it frequently for over a quarter of a century.
+        
+        Along with the Trompowsky Attack, Colle System, London System, and Torre Attack, the Richter–Veresov Attack is one of the more common branches of the Queen's Pawn Game. The Richter–Veresov Attack looks like the more popular Ruy Lopez opening mirrored on the queenside, but the dynamics of play are quite different.
+        
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('d7-d5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('b1-c3');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('g8-f6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('c1-g5');
+      }, 4650);
+    });
+  </script>
+</body>
 </html>
+
+

@@ -1,34 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Dutch Defense - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Dutch Defense - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="dutch-defense">Dutch Defense</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/DutchDefense.jpg" alt="Dutch Defense" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Dutch Defense is a chess opening that begins with the moves 1. d4 f5. This opening is characterized by Black’s immediate challenge to the center, aiming to control the e4 square and undermine White’s pawn on d4. A common continuation is 2. Nf3 Nf6 3. g3, where White prepares to develop the kingside while Black often fianchettoes the bishop on g7. The Dutch Defense leads to complex, dynamic positions where both players have opportunities to seize the initiative. It is considered an ambitious and uncompromising opening choice for Black, often leading to sharp, tactical battles.</p>
+    <div class="box" id="box2">
+      <p>
+        The Dutch Defence is a chess opening characterised by the moves:
 
-<p><a href="https://www.thechesswebsite.com/dutch-defense/">Original article</a></p>
+        1. d4 f5
+        Black's 1...f5 stakes a claim to the e4-square and envisions an attack in the middlegame on White's kingside; however, it also weakens Black's kingside to some extent, especially on the e8–h5 diagonal. Like its 1.e4 counterpart, the Sicilian Defence, the Dutch is an aggressive and unbalancing opening, resulting in the lowest percentage of draws among the most common replies to 1.d4. Historically, White has tried many methods to exploit the kingside weaknesses, such as the Staunton Gambit (2.e4) and Korchnoi Attack (2.h3 and 3.g4).
+        The Dutch has never been a main line against 1.d4 and is rarely seen today in high-level competition, although a number of top players, including Alexander Alekhine, Bent Larsen, Paul Morphy, Miguel Najdorf, Simon Williams, and Hikaru Nakamura have used it with success.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('f7-f5');
+      }, 3150);
+
+    });
+  </script>
+</body>
 </html>
+

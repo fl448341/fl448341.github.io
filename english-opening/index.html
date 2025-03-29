@@ -1,34 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>English Opening - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>English Opening - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="english-opening">English Opening</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/EnglishOpening.jpg" alt="English Opening" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The English Opening is a chess opening that begins with the move 1. c4, which is known as the ‘English’ or ‘Anglo-Saxon’ move. This opening is characterized by a flexible and positional approach, allowing White to control the center and develop their pieces in a harmonious manner. The typical first few moves of the English Opening are: 1. c4 e5 2. Nc3 Nf6 3. Nf3 Nc6 4. g3, where White aims to control the center and develop their pieces, while also preparing to castle kingside. The English Opening is a popular choice for players who prefer a more strategic and maneuvering style of play, as it offers a wide range of possibilities and avoids the sharp tactical lines often seen in other openings.</p>
+    <div class="box" id="box2">
+      <p>
+        The English Opening is a chess opening that begins with the move:
 
-<p><a href="https://www.thechesswebsite.com/english-opening/">Original article</a></p>
+1. c4.
+A flank opening, it is the fourth most popular and, according to various databases, one of the four most successful of White's twenty possible first moves. White begins the fight for the centre by staking a claim to the d5-square from the wing, in hypermodern style. Although many lines of the English have a distinct character, the opening is often used as a transpositional device in much the same way as 1.Nf3 – to avoid such highly regarded responses to 1.d4 as the Nimzo-Indian and Grünfeld Defences – and is considered reliable and flexible.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('c2-c4');
+      }, 2650);
+
+    });
+  </script>
+</body>
 </html>

@@ -1,34 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>French Defense - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>French Defense - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="french-defense">French Defense</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/French-Defense.jpg" alt="French Defense" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The French Defense is a popular chess opening that begins with the moves 1. e4 e6. This opening is characterized by Black’s decision to defend the center with the pawn on e6, rather than immediately challenging the center with moves like 1…c5 (the Sicilian Defense) or 1…d5 (the Caro-Kann Defense). The typical continuation of the French Defense is 2. d4 d5, where Black stakes a claim in the center and prepares to counterattack. White then has several options, such as 3. Nc3, 3. exd5, or 3. Bd3, each of which leads to distinct variations of the French Defense. The French Defense is known for its solid and strategic nature, often leading to complex and maneuvering positions.</p>
+    <div class="box" id="box2">
+      <p>
+        The French Defence is a chess opening characterised by the moves:
 
-<p><a href="https://www.thechesswebsite.com/french-defense/">Original article</a></p>
+1. e4 e6
+This is most commonly followed by 2.d4 d5. Black usually plays ...c5 soon after, attacking White's pawn centre and gaining space on the queenside. The French has a reputation for solidity and resilience, although some lines such as the Winawer Variation can lead to sharp complications. Black's position is often somewhat cramped in the early game; in particular, the pawn on e6 can impede the development of the bishop on c8.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('e7-e6');
+      }, 3150);
+
+    });
+  </script>
+</body>
 </html>
+
+

@@ -1,34 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Black Knights Tango - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Black Knights Tango - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
-      <h3 id="black-knights-tango">Black Knights Tango</h3>
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2014/06/black-knights-tango-big.jpg" alt="Black Knights Tango" /></p>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
+      <h3 id="black-knights-tango">Black Knights' Tango</h3>
+    </div>
 
-<p>The Black Knights Tango is an uncommon chess opening that begins with the moves 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5. This opening is characterized by Black’s early development of the knight to c6, challenging the center and preparing to launch an attack on the e4 pawn. The name ‘Black Knights Tango’ refers to the dance-like movement of the black knights, which often play a central role in the resulting positions. While not a mainstream opening, the Black Knights Tango can lead to sharp and tactical positions, making it an interesting choice for players looking to surprise their opponents.</p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p><a href="https://www.thechesswebsite.com/black-knights-tango/">Original article</a></p>
+    <div class="box" id="box2">
+      <p>
+        The Black Knights' Tango (also known as the Mexican Defense, Two Knights' Tango or Kevitz–Trajkovic Defense) is a chess opening beginning with the moves:
 
-    </main>
+1. d4 Nf6
+2. c4 Nc6.
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+This position can also be reached by transposition, for example 1.c4 Nf6, 1.d4 Nc6, or 1.c4 Nc6.
+
+Although fairly uncommon, the "Tango" has a sounder positional basis than most other offbeat openings: Black develops quickly, has a flexible pawn structure, and is prepared to strike back in the center with 3...e5, or with ...e6 and ...d5.
+
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
+
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
+
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('g8-f6');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('c2-c4');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('b8-c6');
+      }, 4150);
+      
+    });
+  </script>
+</body>
 </html>
+
+
+

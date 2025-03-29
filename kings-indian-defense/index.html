@@ -1,34 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Kings Indian Defense - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Kings Indian Defense - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="kings-indian-defense">Kings Indian Defense</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/kings-indian-defense-big.jpg" alt="Kings Indian Defense" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Kings Indian Defense is a popular chess opening that begins with the moves 1. d4 Nf6 2. c4 g6. This opening is characterized by Black’s fianchettoing of the king’s bishop, creating a strong pawn center for White, and a tense, strategic battle for control of the center. Black’s plan is to undermine White’s center with moves like …c5 and …Bg4, while also developing a strong kingside attack. The first 3-5 moves typically go: 1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3.</p>
+    <div class="box" id="box2">
+      <p>
+        The King's Indian Defence (or KID) is a common chess opening. It is defined by the following moves:
 
-<p><a href="https://www.thechesswebsite.com/kings-indian-defense/">Original article</a></p>
+1. d4 Nf6
+2. c4 g6
+Black intends to follow up with 3...Bg7 and 4...d6 (the Grünfeld Defence arises when Black plays 3...d5 instead and is considered a separate opening). White's major third move options are 3.Nc3, 3.Nf3, or 3.g3, with both the King's Indian and Grünfeld playable against these moves.
 
-    </main>
+The King's Indian is a hypermodern opening, where Black deliberately allows White control of the centre with pawns, with the view to subsequently challenge it. In the most critical lines of the King's Indian, White erects an imposing pawn centre with Nc3 followed by e4. 
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
+
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
+
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('g8-f6');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('c2-c4');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('g7-g6');
+      }, 4150);
+    });
+  </script>
+</body>
 </html>

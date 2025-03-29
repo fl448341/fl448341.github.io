@@ -1,34 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Budapest Gambit - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Budapest Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="budapest-gambit">Budapest Gambit</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/budapest_big.jpg" alt="Budapest Gambit" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Budapest Gambit is a chess opening that begins with the moves 1. d4 Nf6 2. c4 e5. This opening is characterized by Black’s early commitment to the e5-pawn, which can lead to sharp and tactical positions. The main idea behind the Budapest Gambit is for Black to challenge the center and gain active counterplay, often at the cost of a pawn. After the initial moves, the game can take various paths, with common continuations including 3. dxe5 Ng4 4. Bf4 Nc6 5. Nc3. The Budapest Gambit is considered an ambitious and unbalanced opening, offering both opportunities and risks for both players.</p>
+    <div class="box" id="box2">
+      <p>
+        The Budapest Gambit (or Budapest Defence) is a chess opening that begins with the moves:
 
-<p><a href="https://www.thechesswebsite.com/budapest-gambit/">Original article</a></p>
+        1. d4 Nf6
+        2. c4 e5.
+        Despite an early debut in 1896, the Budapest Gambit received attention from leading players only after a win as Black by Grandmaster Milan Vidmar over Akiba Rubinstein in 1918. It enjoyed a rise in popularity in the early 1920s, but nowadays is rarely played at the top level. It experiences a lower percentage of draws than other main lines, but also a lower overall performance for Black.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('g8-f6');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('c2-c4');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 4150);
+      
+    });
+  </script>
+</body>
 </html>
+
+
+

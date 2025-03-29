@@ -1,34 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Kings Indian Attack - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Kings Indian Attack - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="kings-indian-attack">Kings Indian Attack</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2014/05/kings-indian-attack-featured1.jpg" alt="Kings Indian Attack" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Kings Indian Attack is a chess opening strategy that is characterized by a specific setup of the white pieces. The typical first 3-5 moves are: 1. Nf3 Nf6 2. g3 g6 3. Bg5 Bg7 4. Nc3 d6 5. d3. This opening allows White to control the center without committing to an early pawn advance, while also developing the pieces and preparing to castle kingside. The Kings Indian Attack is a flexible and positional approach that can lead to a variety of middle-game structures, making it a popular choice among chess players at all levels.</p>
+    <div class="box" id="box2">
+      <p>
+        The King's Indian Attack (or KIA) is a chess opening system where White adopts the setup more commonly seen being played by Black in the King's Indian Defence. The King's Indian Attack is characterised by the following moves: the central pawns are developed to e4 and d3, the knights are developed to d2 and f3, the king's bishop is fianchettoed at g2 following the g-pawn's move to g3, and White castles kingside.
 
-<p><a href="https://www.thechesswebsite.com/kings-indian-attack/">Original article</a></p>
+This pattern can either be achieved via a 1.e4 move order (typically against either the French Defence or a Sicilian Defence with a subsequent ...e6) or as a universal system starting with 1.Nf3.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('d7-d5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('g2-g3');
+      }, 3650);
+
+    });
+  </script>
+</body>
 </html>
+
+

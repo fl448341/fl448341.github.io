@@ -1,34 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Halloween Gambit - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Halloween Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="halloween-gambit">Halloween Gambit</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/HalloweenGambit.jpg" alt="Halloween Gambit" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Halloween Gambit is a chess opening that begins with the moves: 1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5. This opening is named after the fact that it was first played on Halloween in 1895 by Harry Nelson Pillsbury against Emanuel Lasker. The Halloween Gambit is considered a risky opening for White, as it involves sacrificing a pawn in the hopes of gaining a strong initiative and attacking chances. However, if Black plays accurately, White may find it difficult to maintain the advantage. The opening is not commonly played at the highest levels of chess, but it can still provide an interesting and tactical game for players looking to surprise their opponents.</p>
+    <div class="box" id="box2">
+      <p>
+        The Halloween Gambit (also known as the Müller–Schulze Gambit or Leipzig Gambit) is an aggressive chess opening gambit in which White sacrifices a knight early on for a single pawn. The opening is an offshoot of the normally staid Four Knights Game and is defined by the moves:
 
-<p><a href="https://www.thechesswebsite.com/halloween-gambit/">Original article</a></p>
+1. e4 e5
+2. Nf3 Nc6
+3. Nc3 Nf6
+4. Nxe5?!
+The theoretician Oskar Cordel reported in 1888 that Leipzig club players used the opening to dangerous effect, but he did not believe it was sound. Their name for it, Gambit Müller und Schulze, was not after any players by those names, but rather a jocular German equivalent of "Smith and Jones" or "Tom, Dick, and Harry". The modern name "Halloween Gambit" was given by the German player Steffen Jakob, who explained that "Many players are shocked, the way they would be frightened by a Halloween mask, when they are mentally prepared for a boring Four Knight's, and then they are faced with Nxe5."
 
-    </main>
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
+
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('b8-c6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('b1-c3');
+      }, 4650);
+      setTimeout(function() {
+        board.move('g8-f6');
+      }, 5150);
+      setTimeout(function() {
+        board.move('f3-e5');
+      }, 5650);
+    });
+  </script>
+</body>
 </html>
+
+

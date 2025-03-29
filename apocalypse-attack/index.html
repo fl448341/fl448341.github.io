@@ -1,34 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Apocalypse Attack - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Apocalypse Attack - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
-      <h3 id="apocalypse-attack">Apocalypse Attack</h3>
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2013/01/apocalypse-attack-featured.jpg" alt="Apocalypse Attack" /></p>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
+      <h3 id="caro-kann">Apocalypse Attack</h3>
+    </div>
 
-<p>The Apocalypse Attack is an aggressive chess opening that begins with the moves: \(1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. O-O Nf6 5. d3\). This opening is characterized by an early kingside fianchetto and a quick development of the white pieces to control the center. White aims to quickly launch an attack on the black king, often with a pawn storm on the kingside. The Apocalypse Attack can lead to sharp, tactical positions where both players must be prepared to handle complex situations.</p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p><a href="https://www.thechesswebsite.com/apocalypse-attack/">Original article</a></p>
+    <div class="box" id="box2">
+      <p>
+        The Apocalypse Attack is an aggressive chess opening that begins with the moves: 1.e4 c6 2.Nf3 d5 3.exd5 cxd5 4.Ne5. This opening refers to a specific line in the Caro-Kann Defense, which is usually characterized by solid, positional play. The attack is a daring attempt to compromise the structural integrity of Black’s position early in the game. Key concepts of the Apocalypse Attack include the opening of central lines, quick mobilization of pieces, and creating asymmetry in the position that can disorient the opponent and lead to tactical opportunities.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('c7-c6');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('d7-d5');
+      }, 4150);
+      setTimeout(function() {
+        board.move('e4-d5');
+      }, 4650);
+      setTimeout(function() {
+        board.move('c6-d5');
+      }, 5150);
+      setTimeout(function() {
+        board.move('f3-e5');
+      }, 5650);
+    });
+  </script>
+</body>
 </html>
+

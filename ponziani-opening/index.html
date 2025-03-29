@@ -1,34 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Ponziani Opening - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Ponziani Opening - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="ponziani-opening">Ponziani Opening</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/ponziani-big.jpg" alt="Ponziani Opening" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>Description unavailable. Error: https://duckduckgo.com/duckchat/v1/chat 418 Ratelimit</p>
+    <div class="box" id="box2">
+      <p>
+        The Ponziani Opening is a chess opening that begins with the moves:
 
-<p><a href="https://www.thechesswebsite.com/ponziani-opening/">Original article</a></p>
+1. e4 e5
+2. Nf3 Nc6
+3. c3
+It is one of the oldest chess openings, having been discussed in literature by 1497. It was advocated by Howard Staunton, generally considered the world's strongest player from 1843 to 1851, in his 1847 book The Chess-Player's Handbook. For some decades, it was often called "Staunton's Opening" or the "English Knight's Game" as a result. Today, it is usually known by the name of Domenico Lorenzo Ponziani, whose main contribution to the opening was his introduction, in 1769, of the countergambit 3...f5!?
 
-    </main>
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
+
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('b8-c6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('c2-c3');
+      }, 4650);
+    });
+  </script>
+</body>
 </html>
+
+

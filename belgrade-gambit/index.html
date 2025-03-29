@@ -1,4 +1,106 @@
 <!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Belgrade Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
+
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
+      <h3 id="belgrade-gambit">Belgrade Gambit</h3>
+    </div>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
+
+    <div class="box" id="box2">
+      <p>
+        The Belgrade Gambit is an aggressive line that derives from the Scotch Four Knights Game:
+1. e4 e5
+2. Nf3 Nc6
+3. Nc3 Nf6
+4. d4 exd4
+5. Nd5
+
+White’s most common move after 4…exd4 is to recapture with 5. Nxd4 but Nd5 allows white to transition into the Belgrade Gambit. As with many less known gambits, the Belgrade gets much of its advantage from your opponent not being familiar with how to play correctly as black.
+</p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
+
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
+
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('b8-c6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('b1-c3');
+      }, 4650);
+      setTimeout(function() {
+        board.move('g8-f6');
+      }, 5150);
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 5650);
+      setTimeout(function() {
+        board.move('e5-d4');
+      }, 6150);
+      setTimeout(function() {
+        board.move('c3-d5');
+      }, 6650);
+    });
+  </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">

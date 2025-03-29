@@ -1,34 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Bishop’s Opening - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Bishop’s Opening - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="bishops-opening">Bishop’s Opening</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2021/05/bishops-chess-opening.png" alt="Bishop’s Opening" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>Bishop’s Opening is a chess opening that begins with the moves 1. e4 c5 2. Bc4. This opening is named after the bishop’s early development to the c4 square, which aims to control the center and put pressure on the opponent’s pawn structure. The typical continuation is 3. Nc3 Nc6 4. Nf3 d6 5. d3, where White develops the knight and prepares to castle, while Black solidifies the center with the pawn on d6. Bishop’s Opening is considered a sound and flexible opening for White, as it allows for a variety of strategic plans depending on how Black responds.</p>
+    <div class="box" id="box2">
+      <p>
+        The Bishop's Opening is a chess opening that begins with the moves:
 
-<p><a href="https://www.thechesswebsite.com/bishops-opening/">Original article</a></p>
+1. e4 e5
+2. Bc4.
+White attacks Black's f7-square and prevents Black from advancing the d-pawn to d5. By ignoring the beginner's maxim "develop knights before bishops", White leaves their f-pawn unblocked, preserving the possibility of f2–f4.
 
-    </main>
+The f2–f4 push gives the Bishop's Opening an affinity with the King's Gambit and the Vienna Game, two openings that share this characteristic. The Bishop's Opening can transpose into either of these openings, and in particular a favorable variation of the King's Gambit, but with care Black can circumvent this. Transpositions into the Giuoco Piano and the Two Knights Defense and other openings are also possible.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
+
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('f1-c4');
+      }, 3650);
+    });
+  </script>
+</body>
 </html>

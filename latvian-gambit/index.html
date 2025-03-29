@@ -1,34 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Latvian Gambit - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Latvian Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="latvian-gambit">Latvian Gambit</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/LatvianGambit_big.jpg" alt="Latvian Gambit" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Latvian Gambit is a chess opening that begins with the moves 1. e4 e5 2. Nf3 f5. This opening is characterized by Black sacrificing a pawn in the center in order to gain rapid development and counterattacking chances. The typical continuation is 3. Nxe5 d6 4. Nf3 fxe4 5. Nc3, where Black aims to create threats against White’s king while trying to recover the sacrificed pawn. The Latvian Gambit is considered a risky but dynamic opening that can lead to sharp and tactical positions, making it an interesting choice for players seeking to unbalance the game from the very start.</p>
+    <div class="box" id="box2">
+      <p>
+        The Latvian Gambit (or Greco Countergambit) is a chess opening characterised by the moves:
 
-<p><a href="https://www.thechesswebsite.com/latvian-gambit/">Original article</a></p>
+1. e4 e5
+2. Nf3 f5?!
+It is one of the oldest chess openings, having been analysed in the 16th century by Giulio Cesare Polerio and then the 17th century by Gioachino Greco, after whom it is sometimes named. The opening has the appearance of a King's Gambit with colours reversed. It is an aggressive but objectively dubious opening for Black which often leads to wild and tricky positions.
+FIDE Master Dennis Monokroussos even goes so far as to describe it as "possibly the worst opening in chess".
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('f7-f5');
+      }, 4150);
+    });
+  </script>
+</body>
 </html>
+
+

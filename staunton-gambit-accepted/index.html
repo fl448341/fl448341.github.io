@@ -1,34 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Staunton Gambit Accepted - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Staunton Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
-      <h3 id="staunton-gambit-accepted">Staunton Gambit Accepted</h3>
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2014/05/staunton-gambit-accepted-featured.jpg" alt="Staunton Gambit Accepted" /></p>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
+      <h3 id="staunton-gambit-accepted">Staunton Gambit</h3>
+    </div>
 
-<p>Description unavailable. Error: https://duckduckgo.com/duckchat/v1/chat 418 Ratelimit</p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p><a href="https://www.thechesswebsite.com/staunton-gambit-accepted/">Original article</a></p>
+    <div class="box" id="box2">
+      <p>
+        The Staunton Gambit is a chess opening characterised by the moves:
 
-    </main>
+        1. d4 f5 (the Dutch Defence)
+        2. e4!?. 
+        White sacrifices a pawn for quick development, with the idea of launching an attack against Black's kingside, which has been somewhat weakened by 1...f5. Black can decline the gambit with 2...d6, transposing to the Balogh Defence, but accepting the pawn with 2...fxe4 is considered stronger.
+        
+        Although the Staunton Gambit was once a feared weapon for White, it is rarely played today, since theory has shown how to neutralise it, and White scores only about 50 percent.
+        
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
+
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('f7-f5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 3650);
+
+    });
+  </script>
+</body>
 </html>
+
+

@@ -1,34 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Catalan Opening - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Catalan Opening - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="catalan-opening">Catalan Opening</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2013/03/catalan-opening-featured1.jpg" alt="Catalan Opening" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Catalan Opening is a chess opening that begins with the moves 1. d4 Nf6 2. c4 e6 3. Nf3 d5. This opening is characterized by White’s control of the center with the pawns on c4 and d4, while Black seeks to undermine this center with the pawn on e6. The Catalan is a flexible opening that allows White to develop a wide range of plans, from a kingside attack to a queenside initiative. It is a popular choice among grandmasters and is considered a solid and positional opening that can lead to complex and strategic positions.</p>
+    <div class="box" id="box2">
+      <p>
+        The Catalan Opening is a chess opening where White plays d4 and c4 and fianchettoes the white bishop on g2. A common opening sequence is 1.d4 Nf6 2.c4 e6 3.g3, although various other openings can transpose into the Catalan.
+        In the Catalan, White adopts a combination of the Queen's Gambit and Réti Opening. White combines the space-gaining moves d4 and c4 with g3, preparing to fianchetto the king's bishop. This places pressure mainly on the queenside while hoping to keep the white king safe in the long-term. The c4-pawn can become vulnerable, however, and White might have to sacrifice a pawn.
 
-<p><a href="https://www.thechesswebsite.com/catalan-opening/">Original article</a></p>
 
-    </main>
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
+
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('g8-f6');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('c2-c4');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('e7-e6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('g2-g3');
+      }, 4650);
+    });
+  </script>
+</body>
 </html>
+
+

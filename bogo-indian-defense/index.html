@@ -1,34 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Bogo Indian Defense - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Bogo Indian Defense - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="bogo-indian-defense">Bogo Indian Defense</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2019/04/bogo-indian-defense.png" alt="Bogo Indian Defense" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Bogo Indian Defense is a chess opening that begins with the moves 1. d4 Nf6 2. c4 e6 3. Nf3 Bb4+. This opening is characterized by Black’s early development of the bishop to the b4 square, challenging White’s control of the center. The Bogo Indian is considered a solid and flexible response to 1. d4, as it allows Black to develop their pieces actively while maintaining control over the center. The opening often leads to complex positional battles, with both sides maneuvering to gain an advantage in the center and on the flanks.</p>
+    <div class="box" id="box2">
+      <p>
+        The Bogo-Indian Defence is a chess opening characterised by the moves:
 
-<p><a href="https://www.thechesswebsite.com/bogo-indian-defense/">Original article</a></p>
+1. d4 Nf6
+2. c4 e6
+3. Nf3 Bb4+
+The position after 1.d4 Nf6 2.c4 e6 is common. The traditional move for White here is 3.Nc3, threatening to set up a big pawn centre with 4.e4. However, 3.Nf3 is often played instead as a way of avoiding the Nimzo-Indian Defence (which would follow after 3.Nc3 Bb4). After 3.Nf3, Black usually plays 3...b6 (the Queen's Indian Defence) or 3...d5 (transposing to the Queen's Gambit Declined), but can instead play 3...Bb4+, the Bogo-Indian Defence. Databases suggest that the Bogo-Indian is played approximately half as often as the Queen's Indian.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('g8-f6');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('c2-c4');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('e7-e6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 4650);
+      setTimeout(function() {
+        board.move('f8-b4');
+      }, 5150);
+    });
+  </script>
+</body>
 </html>
+
+

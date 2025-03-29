@@ -1,34 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Elephant Gambit - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Elephant Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="elephant-gambit">Elephant Gambit</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2019/04/elephant-gambit.png" alt="Elephant Gambit" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Elephant Gambit is a chess opening that begins with the moves: 1. e4 e5 2. Nf3 d6 3. Bc4 Bg4. This opening is considered unorthodox and risky for White, as it allows Black to quickly develop their pieces and potentially launch a counterattack against White’s center. The name ‘Elephant Gambit’ comes from the unusual placement of the bishop on c4, which resembles an elephant’s trunk. While not a commonly played opening at the highest levels, the Elephant Gambit can be an interesting choice for players looking to surprise their opponents and try something a bit different from the more mainstream openings.</p>
+    <div class="box" id="box2">
+      <p>
+        The Elephant Gambit (also called the Queen's Pawn Countergambit, Englund Counterattack or Turkish Gambit) is a rarely played chess opening beginning with the moves:
 
-<p><a href="https://www.thechesswebsite.com/elephant-gambit/">Original article</a></p>
+1. e4 e5
+2. Nf3 d5
+The Elephant Gambit is generally considered unsound, with black typically unable to gain compensation for the sacrificed pawn.
 
-    </main>
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
+
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
+
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('d7-d5');
+      }, 4150);
+      
+    });
+  </script>
+</body>
 </html>
+
+

@@ -1,34 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Muzio Gambit - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Muzio Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="muzio-gambit">Muzio Gambit</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/muzio-gambit-big.jpg" alt="Muzio Gambit" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>Description unavailable. Error: https://duckduckgo.com/duckchat/v1/chat 418 Ratelimit</p>
+    <div class="box" id="box2">
+      <p>
+        In chess, the Muzio Gambit, sometimes called the Polerio Gambit, is an opening line in the King's Gambit in which White sacrifices a knight for a large lead in development and attacking chances. It begins with the moves:
 
-<p><a href="https://www.thechesswebsite.com/muzio-gambit/">Original article</a></p>
+1. e4 e5
+2. f4 exf4
+3. Nf3 g5
+4. Bc4 g4
+5. 0-0
+White offers a knight, aiming to exploit Black's weakness on the f-file to attack the black king. Other possibilities for White's 5th move are 5.Bxf7+ (Lolli Gambit), 5.Nc3 (McDonnell Gambit), 5.d4 (Ghulam Kassim Gambit), 5.h4 (Australian Gambit), and 5.Ne5 (Salvio Gambit), but 5.0-0! is generally reckoned to be White's strongest option, and in fact 4.Bc4 (rather than 4.h4) is usually played with the intention of playing a Muzio. Black can avoid the Muzio with 4...Bg7, and this has sometimes been recommended as a safe and practical over-the-board choice.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('f2-f4');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('e5-f4');
+      }, 4150);
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 4650);
+      setTimeout(function() {
+        board.move('g7-g5');
+      }, 5150);
+      setTimeout(function() {
+        board.move('f1-c4');
+      }, 5650);
+      setTimeout(function() {
+        board.move('g5-g4');
+      }, 6150);
+      setTimeout(function() {
+        board.move('e1-g1');
+        board.move('h1-f1');
+      }, 6650);
+    });
+  </script>
+</body>
 </html>

@@ -1,34 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Matinovsky Gambit - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Matinovsky Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="matinovsky-gambit">Matinovsky Gambit</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2021/07/matinovsky-gambit-opening.jpg" alt="Matinovsky Gambit" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>Description unavailable. Error: https://duckduckgo.com/duckchat/v1/chat 418 Ratelimit</p>
+    <div class="box" id="box2">
+      <p>
+        The Matinovsky Gambit is an aggressive line by black in the Owen’s Defense. It starts with the moves:
 
-<p><a href="https://www.thechesswebsite.com/matinovsky-gambit/">Original article</a></p>
+        1. e4 b6
+        2. d4 Bb7
+        3. Bd3 f5
+        
+        Black looks to give up the f pawn in exchange for an activated light squared bishop. Black can immediately take on g2 and threaten the h1 rook. If white plays correctly the rook on h1 will stay safe and should have a very good game. White should always accept the gambit but must make sure they are familiar with the opening or things can turn quickly in black’s favor.
+        
+        After the moves 4. exf5 Bxg2, white should continue with 5. Qh5+. Black is forced to play g6 followed by 6. fxg6.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('b7-b6');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('c8-b7');
+      }, 4150);
+      setTimeout(function() {
+        board.move('f1-d3');
+      }, 4650);
+      setTimeout(function() {
+        board.move('f7-f5');
+      }, 5150);
+    });
+  </script>
+</body>
 </html>
+
+

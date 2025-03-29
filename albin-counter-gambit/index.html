@@ -1,34 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Albin Counter-Gambit - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Albin Counter-Gambit - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
-      <h3 id="albin-counter-gambit">Albin Counter-Gambit</h3>
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/albin2.jpg" alt="Albin Counter-Gambit" /></p>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
+      <h3 id="caro-kann">Albin Counter-Gambit</h3>
+    </div>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Albin Counter-Gambit is a chess opening that begins with the moves 1. d4 d5 2. c4 e5. This is an aggressive response to the Queen’s Gambit, where Black immediately challenges the center by attacking the pawn on c4. The main idea for Black is to gain space and control the center, while also threatening to win the pawn on c4. The Albin Counter-Gambit is named after the Romanian chess master Adolf Albin, who popularized this opening in the late 19th century. It is considered a risky but dynamic opening, as Black sacrifices a pawn in the hopes of gaining a strong initiative and counterattacking opportunities.</p>
+    <div class="box" id="box2">
+      <p>
+        The Albin Counter-Gambit is a chess opening that begins with the moves 1. d4 d5 2. c4 e5. This is an aggressive response 
+        to the Queen’s Gambit, where Black immediately challenges the center by attacking the pawn on c4. 
+        The main idea for Black is to gain space and control the center, while also threatening to win the pawn on c4. 
+        The Albin Counter-Gambit is named after the Romanian chess master Adolf Albin, who popularized this opening in the 
+        late 19th century. It is considered a risky but dynamic opening, as Black sacrifices a pawn in the hopes of 
+        gaining a strong initiative and counterattacking opportunities.
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-<p><a href="https://www.thechesswebsite.com/albin-counter-gambit/">Original article</a></p>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    </main>
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 2650);
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('d7-d5');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('c2-c4');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('e7-e5');
+      }, 4150);
+    });
+  </script>
+</body>
 </html>

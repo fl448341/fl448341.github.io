@@ -1,34 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Grob Attack - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Grob Attack - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="grob-attack">Grob Attack</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2018/10/grob-attack.png" alt="Grob Attack" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>The Grob Attack is an uncommon chess opening that begins with the moves 1. g4. This aggressive and unorthodox opening aims to quickly control the center and limit the opponent’s development. The typical continuation goes 1. g4 d5 2. Bg5 Nc6 3. Nf3 Bg4, where White tries to undermine Black’s pawn structure and create weaknesses. The Grob Attack is considered a risky opening that can lead to sharp and tactical positions, making it an interesting choice for players looking to surprise their opponents and take the initiative early in the game.</p>
+    <div class="box" id="box2">
+      <p>
+        Grob's Attack, or the Grob Opening, is an unconventional chess opening in which White begins with the move:
 
-<p><a href="https://www.thechesswebsite.com/grob-attack/">Original article</a></p>
+1. g4
+It is widely considered to be one of the worst possible first moves for White. International Master (IM) John Watson writes, "As far as I can tell, 1 g4 is competitive with 1 h4 for the honour of being White's worst first move. Against an informed or skilled opponent, it is simply masochistic."
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('g2-g4');
+      }, 2650);
+    });
+  </script>
+</body>
 </html>

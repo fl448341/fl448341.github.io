@@ -1,34 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Queens Indian Defense - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Queens Indian Defense - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="queens-indian-defense">Queens Indian Defense</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/queens-indian-defense.jpg" alt="Queens Indian Defense" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>Description unavailable. Error: https://duckduckgo.com/duckchat/v1/chat 418 Ratelimit</p>
+    <div class="box" id="box2">
+      <p>
+        The Queen's Indian Defense is a chess opening defined by the moves:
 
-<p><a href="https://www.thechesswebsite.com/queens-indian-defense/">Original article</a></p>
+        1. d4 Nf6
+        2. c4 e6
+        3. Nf3 b6
+        The opening is a solid defense to the Queen's Pawn Game. 3...b6 increases Black's control over the central light squares e4 and d5 by preparing to fianchetto the queen's bishop, with the opening deriving its name from this maneuver. As in the other Indian defenses, Black attempts to control the center with pieces in hypermodern style, instead of occupying it with pawns in classical style.
+        
+        By playing 3.Nf3, White sidesteps the Nimzo-Indian Defense that arises after 3.Nc3 Bb4. The Queen's Indian is regarded as the sister opening of the Nimzo-Indian, since both openings aim to impede White's efforts to gain full control of the center by playing e2–e4. Together, they are a well-respected response to 1.d4.      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('d2-d4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('g8-f6');
+      }, 3150);
+
+      setTimeout(function() {
+        board.move('c2-c4');
+      }, 3650);
+
+      setTimeout(function() {
+        board.move('e7-e6');
+      }, 4150);
+      setTimeout(function() {
+        board.move('g1-f3');
+      }, 4650);
+      setTimeout(function() {
+        board.move('b7-b6');
+      }, 5150);
+    });
+  </script>
+</body>
 </html>
+
+

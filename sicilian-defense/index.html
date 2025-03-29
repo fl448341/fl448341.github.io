@@ -1,34 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Sicilian Defense - Chess Openings</title>
-    <link rel="stylesheet" href="/assets/main.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrapper">
-        <h1 class="site-title">
-          <a href="/">Chess Openings</a>
-        </h1>
-      </div>
-    </header>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Sicilian Defense - Chess Openings</title>
+  <link rel="stylesheet" href="../output.css">
 
-    <main class="wrapper">
+  <link rel="stylesheet" href="../chessboardjs/css/chessboard-1.0.0.min.css">
+  
+  <style>
+    #board {
+      width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../chessboardjs/js/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="flex items-center justify-between px-4">
+      <h1 class="site-title">
+        <a href="/">Chess Openings</a>
+      </h1>
+      <nav class="flex items-center space-x-2">
+        <a class="sub-title" href="/chessPlayers/">Chess Players</a>  
+        <a class="sub-title" href="https://github.com/fl448341/fl448341.github.io">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-container">
+    <div class="box" id="box1">
       <h3 id="sicilian-defense">Sicilian Defense</h3>
+    </div>
 
-<p><img src="https://www.thechesswebsite.com/wp-content/uploads/2012/07/sicilian-big.jpg" alt="Sicilian Defense" /></p>
+    <div class="box" id="box3">
+      <div id="board"></div>
+    </div>
 
-<p>Description unavailable. Error: https://duckduckgo.com/duckchat/v1/chat 418 Ratelimit</p>
+    <div class="box" id="box2">
+      <p>
+        The Sicilian Defence is a chess opening that begins with the following moves:
 
-<p><a href="https://www.thechesswebsite.com/sicilian-defense/">Original article</a></p>
+        1. e4 c5. 
+        The Sicilian is the most popular and best-scoring response to White's first move 1.e4. The opening 1.d4 is a statistically more successful opening for White because of the high success rate of the Sicilian defence against 1.e4. New In Chess stated in its 2000 Yearbook that, of the games in its database, White scored 56.1% in 296,200 games beginning 1.d4, but 54.1% in 349,855 games beginning 1.e4, mainly because the Sicilian held White to a 52.3% score in 145,996 games.
+        
+        17% of all games between grandmasters, and 25% of the games in the Chess Informant database, begin with the Sicilian.
+        
+        Grandmaster John Nunn attributes the Sicilian Defence's popularity to its "combative nature": "in many lines Black is playing not just for equality, but for the advantage. The drawback is that White often obtains an early initiative, so Black has to take care not to fall victim to a quick attack."
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer h-card">
+    <div class="wrapper">
+      <p>© 2025 Filip Łazowski, MIMUW - Computer Science </p>
+    </div>
+  </footer>
 
-    </main>
+  <script>
+    $(document).ready(function() {
+      var board = Chessboard('board', {
+        position: 'start',
+        pieceTheme: '../chessboardjs/img/chesspieces/wikipedia/{piece}.png'
+      });
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <p>© 2025 Filip Łazowski</p>
-      </div>
-    </footer>
-  </body>
+      setTimeout(function() {
+        board.move('e2-e4');
+      }, 2650);
+
+      setTimeout(function() {
+        board.move('c7-c5');
+      }, 3150);
+
+    });
+  </script>
+</body>
 </html>
+
+
