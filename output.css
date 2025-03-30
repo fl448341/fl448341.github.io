@@ -538,12 +538,30 @@ html {
     margin: 0 auto;
   }
   #box1 {
+    animation: var(--animate-flip-down);
+    animation-delay: 1050ms;
+    animation-duration: 500ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-direction: normal;
+    animation-iteration-count: 1;
     order: 1;
   }
   #box2 {
+    animation: var(--animate-flip-up);
+    animation-delay: 2150ms;
+    animation-duration: 500ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-direction: normal;
+    animation-iteration-count: 1;
     order: 3;
   }
   #box3 {
+    animation: var(--animate-flip-down);
+    animation-delay: 1600ms;
+    animation-duration: 500ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-direction: normal;
+    animation-iteration-count: 1;
     img {
       border-radius: 20px;
       max-width: 100%;

@@ -202,12 +202,15 @@ html {
   }
 
   #box1 {
+      @apply animate-flip-down animate-once animate-duration-[500ms] animate-delay-1050 animate-ease-in-out animate-normal;
       order: 1;
   }
   #box2 {
+      @apply animate-flip-up animate-once animate-duration-[500ms] animate-delay-2150 animate-ease-in-out animate-normal;
       order: 3;
   }
   #box3 {
+      @apply animate-flip-down animate-once animate-duration-[500ms] animate-delay-1600 animate-ease-in-out animate-normal;
       img {
           border-radius: 20px;
           max-width: 100%;
